@@ -1,48 +1,171 @@
 ---
 title: Introduction
 seoTitle: title for search engines
-seoDescription: desription for seacrch engines
+seoDescription: description for search engines
 isFree: true
 ---
 
+## What is Lorem Ipsum?
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
+#### Why do we use it?
+It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
 
-## Our book
-This folder contains the codebases for each chapter of [our book](https://builderbook.org/book), which teaches you how to build the entire Builder Book web app from scratch.
-- start reading the [introduction chapter](https://builderbook.org/books/builder-book/introduction)
-- check out [reviews](https://builderbook.org/book-reviews) of the book
+#### Where does it come from?
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 
-In each chapter, you'll begin with the `start` folder and build up to the `end` folder for that chapter. In total, you'll go from 0 lines of code in Chapter 1 to over 10,000 lines of code in Chapter 8. little change
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
 
-## What you'll learn
-- how to build a web app with a modern JavaScript stack: React, Material-UI, Next, Express, Mongoose, MongoDB
-- how to integrate a web app with popular third party APIs: Google for user authentication, Github for markdown and collaboration, AWS SES for transactional emails, MailChimp for newsletters, Stripe for selling
+#### Where can I get some?
+There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
 
-## Why this book?
-- learn every step of building a web app - writing pages/components, creating a server, connecting a database, integrating APIs, and more; you could spend weeks searching these topics on Google
-- add the final app you build to your portfolio; customize the code to make it your own, and share it on your resume to land your next job
+## Build Tic Tac Toe Game
+Check out [this tutorial](https://reactjs.org/tutorial/tutorial.html) at Reactjs.org.
 
-## Who is the book for?
-This book assumes basic knowledge of HTML, CSS, React, and JavaScript. However, we've aimed to explain every line of code in our book. In cases where we do not describe a feature of JavaScript, React, or frameworks and packages that we use, we provide links for you to learn about them.
+```
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
+}
 
-We provide a free preview for every chapter to help you decide whether this book is for you. See the links below in the table of contents section.
+class Board extends React.Component {
+  renderSquare(i) {
+    return (
+      <Square
+        value={this.props.squares[i]}
+        onClick={() => this.props.onClick(i)}
+      />
+    );
+  }
 
-Throughout the book, you will:
-- get familar with React, Next.js, and Material-UI
-- create an Express server and Session
-- connect your app to MongoDB with the help of Mongoose
-- add Google OAuth 2.0 for user authentication
-- integrate your app with third-party applications: Github, Stripe, AWS SES, and Mailchimp
-- create User, Book, Chapter, EmailTemplate, and Purchase models
-- write dozens of static methods for these models, as well as for Express routes and API methods
-- write dozens of pages, components, and more
+  render() {
+    return (
+      <div>
+        <div className="board-row">
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        </div>
+        <div className="board-row">
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        </div>
+      </div>
+    );
+  }
+}
 
-## Table of contents
-1. [App structure. Next.js. HOC. Material-UI. Server-side rendering. Styles.](https://builderbook.org/books/builder-book/app-structure-next-js-hoc-material-ui-server-side-rendering-styles)
-2. [Server. Database. Session. Header and MenuDrop components.](https://builderbook.org/books/builder-book/server-database-session-header-and-menudrop-components)
-3. [Authentication HOC. Promise. Async/await. Static method for User model. Google OAuth.](https://builderbook.org/books/builder-book/authentication-hoc-promise-async-await-static-method-for-user-model-google-oauth)
-4. [Testing with Jest. Debugging with Winston. Transactional emails. In-app notifications.](https://builderbook.org/books/builder-book/testing-with-jest-debugging-with-winston-transactional-emails-in-app-notifications)
-5. [Book and Chapter models. Internal API. Render chapter.](https://builderbook.org/books/builder-book/book-and-chapter-models-internal-api-render-chapter)
-6. [Github integration. Admin dashboard. Testing Admin UX and Github integration.](https://builderbook.org/books/builder-book/github-integration-admin-dashboard-testing-admin-ux-and-github-integration)
-7. [Table of Contents. Highlight for section. Hide Header. Mobile browser.](https://builderbook.org/books/builder-book/table-of-contents-highlight-for-section-hide-header-mobile-browser)
-8. [BuyButton component. Buy book logic. ReadChapter page. Checkout flow. MyBooks page. Mailchimp API. Deploy app.](https://builderbook.org/books/builder-book/buybutton-component-buy-book-logic-readchapter-page-checkout-flow-mybooks-page-mailchimp-api-deploy-app)
+class Game extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      history: [
+        {
+          squares: Array(9).fill(null)
+        }
+      ],
+      stepNumber: 0,
+      xIsNext: true
+    };
+  }
+
+  handleClick(i) {
+    const history = this.state.history.slice(0, this.state.stepNumber + 1);
+    const current = history[history.length - 1];
+    const squares = current.squares.slice();
+    if (calculateWinner(squares) || squares[i]) {
+      return;
+    }
+    squares[i] = this.state.xIsNext ? "X" : "O";
+    this.setState({
+      history: history.concat([
+        {
+          squares: squares
+        }
+      ]),
+      stepNumber: history.length,
+      xIsNext: !this.state.xIsNext
+    });
+  }
+
+  jumpTo(step) {
+    this.setState({
+      stepNumber: step,
+      xIsNext: (step % 2) === 0
+    });
+  }
+
+  render() {
+    const history = this.state.history;
+    const current = history[this.state.stepNumber];
+    const winner = calculateWinner(current.squares);
+
+    const moves = history.map((step, move) => {
+      const desc = move ?
+        'Go to move #' + move :
+        'Go to game start';
+      return (
+        <li key={move}>
+          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+        </li>
+      );
+    });
+
+    let status;
+    if (winner) {
+      status = "Winner: " + winner;
+    } else {
+      status = "Next player: " + (this.state.xIsNext ? "X" : "O");
+    }
+
+    return (
+      <div className="game">
+        <div className="game-board">
+          <Board
+            squares={current.squares}
+            onClick={i => this.handleClick(i)}
+          />
+        </div>
+        <div className="game-info">
+          <div>{status}</div>
+          <ol>{moves}</ol>
+        </div>
+      </div>
+    );
+  }
+}
+
+// ========================================
+
+ReactDOM.render(<Game />, document.getElementById("root"));
+
+function calculateWinner(squares) {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
+    }
+  }
+  return null;
+}
+
+```

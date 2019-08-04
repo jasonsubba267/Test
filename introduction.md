@@ -1,3 +1,12 @@
+---
+title: Introduction
+seoTitle: title for search engines
+seoDescription: desription for seacrch engines
+isFree: true
+---
+
+
+
 ## Our book
 This folder contains the codebases for each chapter of [our book](https://builderbook.org/book), which teaches you how to build the entire Builder Book web app from scratch.
 - start reading the [introduction chapter](https://builderbook.org/books/builder-book/introduction)
